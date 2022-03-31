@@ -1,0 +1,59 @@
+import React, { useState, useEffect } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Button, CardActionArea, CardActions } from "@mui/material";
+import axios from "axios";
+const CardSetBoxes = () => {
+  const [elonNews, setElonNews] = useState([]);
+  useEffect(() => {
+    const loadNewsFromApi = async () => {
+      const responseApi = await axios.get(
+        "https://newsapi.org/v2/everything?q=tesla&from=2022-02-27&sortBy=publishedAt&apiKey=391b845c95b64b0ea4a5c67fe7d31a41"
+      );
+      setElonNews(responseApi.data.articles);
+      console.log(responseApi.data);
+    };
+    loadNewsFromApi();
+  }, []);
+  return (
+    <>
+          {elonNews &&
+            elonNews.map((item, index) => {
+                return (
+                    <>
+                    <div className="contianer my-5">
+                  <div className="row">
+                  <div className="col-md-4">
+                    <Card sx={{ maxWidth: 345 }} key={index}>
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        image={item.urlToImage}
+                        alt="green iguana"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {item.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {item.description}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button size="small" href={item.url}>
+                          Get full article
+                        </Button>
+                      </CardActions>
+                    </Card>
+                  </div>
+        </div>
+      </div>
+                </>
+              );
+            })}
+    </>
+  );
+};
+export default CardSetBoxes;
