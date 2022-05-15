@@ -18,12 +18,12 @@
     "axois": "^0.0.1-security"
     
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+   "scripts": {
+        "start": "react-scripts start",
+        "build": "CI= false",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
   "eslintConfig": {
     "extends": [
       "react-app",
