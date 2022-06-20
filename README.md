@@ -1,6 +1,8 @@
+# Presently this newsapp is not working now on the web becasuse of the membership of the newsapi (but it will work into your local server clone it into your system install node and start the server for the output)
 # Create React App
 
 This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+
 
 ## Deploy Your Own
 
